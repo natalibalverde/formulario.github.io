@@ -1,0 +1,24 @@
+#container{
+    margin-left: 22%;
+    margin-right: 22%;
+}
+p{
+    margin-bottom: 0%;
+}
+.fondo{
+    padding: 3%;
+    border: 1px solid;
+}
+.header{
+    text-align: center;
+    color:white;
+    background-color: rgb(172, 32, 32);
+    border: 2px black;
+    padding: 0.05%;
+}
+.ending{
+    text-align: center;
+    background-color: black;
+    border: 1px black;
+    padding: 5%;
+}
