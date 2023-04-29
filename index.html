@@ -1,72 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="app.js"></script>
+    </head>
 
-<body>
+    <body>
 
 
-    <div id="container">
-        <div class="header">
-            <h2>Formulario de registro</h2>
+        <div id="container">
+            <div class="header">
+                <h2>Formulario de registro</h2>
 
-        </div>
-        <div class="fondo">
-            <div>
+            </div>
+            <div class="fondo">
                 <div>
-                    <p>E-mail:</p>
-                    <input type="text">
-                </div>
-                <br>
-                <div>
-                    <p>Nombre completo: </p>
-                    <input type="text">
-                </div>
-                <br>
-                <div>
-                    <p>Sexo:</p>
-                    <select name="select">
-                        <option value="Hombre">Hombre</option>
-                        <option value="Mujer" selected>Mujer</option>
-                    </select>
-                </div>
-                <br>
-                <div>
-                    <p>Fecha de nacimiento:</p>
-                    <input type="date">
+                    <div>
+                        <p>E-mail:</p>
+                        <input type="text" id="email" onblur="validateRequired(this)" >
+                    </div>
+                    <br>
+                    <div>
+                        <p>Nombre completo: </p>
+                        <input type="text" id="nombre" onblur="validateRequired(this)">
+                    </div>
+                    <br>
+                    <div>
+                        <p>Sexo:</p>
+                        <select name="select" id="sexo" onblur="validateRequired(this)">
+                            <option value="0">Hombre</option>
+                            <option value="1" >Mujer</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div>
+                        <p>Fecha de nacimiento:</p>
+                        <input type="date" id="fecha" onblur="validateRequired(this)">
 
-                </div>
-                <br>
-                <div>
-                    <p><b>Intereses</b></p>
-                    <input type="checkbox" name="Computers" id="m" value="m">
-                    <label for="m">Computers
-                        <br>
-                        <input type="checkbox" name="sports" id="m" value="m">
-                        <label for="m">Sports</label>
-                        <br>
-                        <input type="checkbox" name="games" id="h" value="h">
-                        <label for="h">Games</label>
-                        <br>
-                        <input type="checkbox" name="music" id="m" value="m">
-                        <label for="m">Music</label>
+                    </div>
+                    <br>
+                    <div>
+                        <p><b>Intereses</b></p>
+                        <input type="checkbox" name="Computers" id="interests" value="1">
+                        <label for="m">Computers
+                            <br>
+                            <input type="checkbox" name="sports" id="interests" value="2">
+                            <label for="m">Sports</label>
+                            <br>
+                            <input type="checkbox" name="music" id="interests" value="3">
+                            <label for="m">Music</label>
+                            <br>
+                            <input type="checkbox" name="games" id="interests" value="4">
+                            <label for="h">Games</label>
 
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="ending">
-            <button> Registrar</button>
+            <div class="ending">
+
+                <button onclick="register()" >
+                    Registrar
+                </button>
+
+            </div>
 
         </div>
+        
+    </body>
 
-    </div>
-
-</body>
-
-</html>
+    </html>
