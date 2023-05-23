@@ -42,7 +42,6 @@ function showErrors(errors) {
         messageError += errors[i] + '\n'
 
     }
-
     alert(messageError)
 }
 
@@ -50,22 +49,21 @@ function register() {
     verifyInterests()
     let errors = []
 
-
     const email = document.getElementById('email')
     if (!verifyNoEmpty(email)) {
         errors.push('Debe ingresar un correo')
     }
-    const name = document.getElementById('nombre')
+    const name = document.getElementById('name')
     if (!verifyNoEmpty(name)) {
 
         errors.push('Debe ingresar un nombre')
     }
-    const date = document.getElementById('fecha')
+    const date = document.getElementById('birthdate')
     if (!verifyNoEmpty(date)) {
 
         errors.push('Debe ingresar una fecha')
     }
-    const sex = document.getElementById('sexo')
+    const sex = document.getElementById('sex')
 
     if (!verifyInterests()) {
         errors.push('Debe seleccionar un intereses')
@@ -86,14 +84,47 @@ function register() {
     }
 
     const request = {
-        email: email.value,
+
         name: name.value,
-        brirthdate: date.value,
+        email: email.value,
+        birthdate: date.value,
         sex: sex.value,
         interests: selectedInterest
 
     }
     console.log(request)
-    alert('Usted se ha registrado satisfactoriamente')
+    console.log('Lista de usuarios: ', users)
 
+    users.push(request)
+    fetch('http://localhost/api-php/', {
+        method: 'POST', body: JSON.stringify(request)
+
+    })
+        .then(response => result = response.json())
+        .then(data => {
+            phpUsers = data
+            console.log(phpUsers)
+        })
+
+        .catch(error => console.log(error))
+    alert('Usted se ha registrado satisfactoriamente')
+    showListUsers(request);
+
+}
+
+function showListUsers(request) {
+    const table = document.getElementById('table-users')
+    const row = document.createElement('tr')
+    for (let prop in request) {
+        if (prop == 'interests') { break }
+        const col = document.createElement('td')
+        if (prop == 'sex') {
+            col.innerHTML = request[prop] == 1 ? 'Femenino' : 'Masculino'
+        } else {
+            col.innerHTML = request[prop]
+        }
+        row.appendChild(col)
+    }
+
+    table.appendChild(row)
 }
