@@ -22,3 +22,7 @@ p{
     border: 1px black;
     padding: 5%;
 }
+
+td{
+    border: 1px solid;
+}
