@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+ <!DOCTYPE html>
     <html lang="en">
 
     <head>
@@ -8,10 +8,10 @@
         <title>Document</title>
         <link rel="stylesheet" href="style.css">
         <script src="app.js"></script>
+        <script src="list.js"></script>
     </head>
 
     <body>
-
 
         <div id="container">
             <div class="header">
@@ -27,20 +27,20 @@
                     <br>
                     <div>
                         <p>Nombre completo: </p>
-                        <input type="text" id="nombre" onblur="validateRequired(this)">
+                        <input type="text" id="name" onblur="validateRequired(this)">
                     </div>
                     <br>
                     <div>
                         <p>Sexo:</p>
-                        <select name="select" id="sexo" onblur="validateRequired(this)">
+                        <select name="select" id="sex" onblur="validateRequired(this)">
                             <option value="0">Hombre</option>
-                            <option value="1" >Mujer</option>
+                            <option value="1" selected>Mujer</option>
                         </select>
                     </div>
                     <br>
                     <div>
                         <p>Fecha de nacimiento:</p>
-                        <input type="date" id="fecha" onblur="validateRequired(this)">
+                        <input type="date" id="birthdate" onblur="validateRequired(this)">
 
                     </div>
                     <br>
@@ -68,8 +68,26 @@
                 </button>
 
             </div>
+            <div>
+                <h1>Lista de usuarios registrados</h1>
+                <table id="table-users" class="table">+
+                    <tr>
+                        <td>Nombre</td>
+                        <td>correo</td>
+                        <td>Fecha de nacimiento</td>
+                        <td>Género</td>
+                    </tr>
+                    <tr>
+                        <td>Peter Parker</td>
+                        <td>spiderman@gmail.com</td>
+                        <td>2000-11-01</td>
+                        <td>Masculino</td>
+                    </tr>
+                </table>
+            </div>
 
         </div>
+        
         
     </body>
 
